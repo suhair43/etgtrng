@@ -1,0 +1,48 @@
+1. mkdir test
+
+2.cat >employeelist
+  cat >skillset
+
+3. $mkdir test2
+   $cat >skillset
+   $cat >demofile1
+   $cat >deofile2
+   $ln -s skillset slink_skillset
+   $ln ln skillset hlink_skillset
+   $rm skillset
+   $ls -l
+   $cat slink_skillset
+   $cat hlink_skillset 
+   a symbolic link is a link that is actually connected to the original
+   a hard link is a link that is a copy of the original link
+
+4. $pwd 
+   $chmod user2+wr skillset
+   
+   $pwd
+   $/home/user2/linux
+   $ls
+   $cd skillset
+
+5. $chmod user2-w skillset
+   $ls -l
+   $/home/user2/linux
+   $ls
+   $cd skillset
+
+6. $chmod o+w skillset
+   $ls -l
+   $/home/user2/linux
+   $ls
+   $cd skillset
+
+7. $chmod o-w skillset
+   
+8. $chgrp employeelist user3
+
+9. $chown user5 file2
+
+10.$wc employee
+
+
+
