@@ -1,0 +1,14 @@
+1. $>file
+
+2. $cat >file
+
+3. $>file2
+   $cat >file2
+
+4. $cat file1
+   $cat file2
+
+5. $cat file1 file2
+
+6. cat file1 file2 >file3
+   
