@@ -1,0 +1,9 @@
+1. $grep "A" file1
+2. $grep "^[T]he" file1
+3. $grep ".$" file1
+4. $grep ".[a/b/c]." file1
+5. $grep "dee* f" file1
+6. $grep "^$" file1
+7. find -name "password[user1-user10]" -exec cat{}\;
+8. ls -d*/
+9.

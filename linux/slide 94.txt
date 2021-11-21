@@ -1,0 +1,10 @@
+1 :i
+2 :dd :u
+3 /bc
+4 dw(number)
+5 :1 s/c/C/global
+6 1,2,3s/ /t/g
+7 use yy and p command
+8 use 3dd command
+9 use u command
+10 w bc_v2

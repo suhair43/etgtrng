@@ -1,0 +1,6 @@
+1. $tr a-z A-Z
+2. 
+3. $cat file1.txt | sed 's/ //g'
+4.
+5. $wc -c file1
+6. grep -c "aeiou" file1
