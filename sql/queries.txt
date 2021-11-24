@@ -1,0 +1,131 @@
+1. SELECT DNAME ,LOC FROM DEPT;
+List all the  departments along with location
+
+SELECT EMPNO ,ENAME FROM EMP;
+List all employees along with their ID
+
+SELECT ENAME,SAL,JOB,COMM FROM EMP;
+List below detailsempname, sal, job, comm
+
+SELECT SAL FROM EMP;
+list the ever employees sal and anual salary
+
+SELECT DISTINCT DEPTNO FROM DEPT
+list unique department nos
+
+
+SELECT SAL,(SAL%12) AS 'ANUAL SALARY' FROM EMP
+if there is a hike in monthly salary by 20% for all, what will be the annual Salary
+
+2nd assgn
+1.Write a query to list all the employees who are working as clerkWrite 
+SELECT 
+      EMPNO,ENAME,JOB
+	  FROM EMP
+	  WHERE JOB = 'CLERK';
+
+2.a query to list the employees who are working as clerks or managers
+SELECT 
+      EMPNO,ENAME,JOB
+	  FROM EMP
+	  WHERE (JOB='CLERK' OR JOB='MANAGER');
+
+3.Write a query to list the employees whose salaries are within the range of 500 and 1000
+SELECT 
+      EMPNO,ENAME,SAL
+	  FROM EMP
+	  WHERE SAL BETWEEN 500 AND 1000;
+
+4.Write a query to list the employees whose salaries are not within  the range of 1000 and 2500
+SELECT 
+      EMPNO,ENAME,SAL
+	  FROM EMP
+	  WHERE SAL NOT BETWEEN 51000 AND 2500;
+
+5.Write a query who are getting 800, 950, 3000,5000
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE SAL IN(800,3000,5000);
+
+6. list all the employees whose names are having ‘L’ as second character 
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME LIKE '_L%';
+
+7. list all the employees whose names are having ‘D’ as last character 
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME LIKE 'D%';
+
+8. list all the employees whose names are having just 5 characters as length?
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME LIKE '_____';
+
+9.list all the employees whose names are starting with ‘T’ and ending with ‘R’
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME LIKE 'T%%R';
+
+10. Display those employees who's name contains "A"?
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME LIKE '%A%';
+	  
+11. What is the employee number of 'James'
+SELECT 
+      EMPNO,ENAME
+	  FROM EMP
+	  WHERE ENAME='JAMES';
+
+
+12.What is the salary of 'king'?
+SELECT 
+      EMPNO,ENAME,SAL
+	  FROM EMP
+	  WHERE ENAME='KING';
+
+13. Who is the President for organization?
+ SELECT 
+	 ENAME AS 'PRESIDENT'
+	  FROM EMP
+	 WHERE JOB='PRESIDENT';
+
+14. List all details of all the managers?
+SELECT 
+      EMPNO,ENAME,JOB,MGR,SAL,COMM,DEPTNO
+	  FROM EMP
+	  WHERE JOB='MANAGER';
+
+15.Give employee details for employees drawing commission?
+SELECT 
+      EMPNO,ENAME,JOB,MGR,SAL,COMM,DEPTNO
+	  FROM EMP
+	 WHERE COMM IS NOT NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

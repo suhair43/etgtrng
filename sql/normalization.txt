@@ -1,0 +1,83 @@
+PET ID	PET NAME	PET TYPE  PET AGE             OWNER	             VISIT DATE	                  PROCEDURE 
+
+246	ROVER		DOG	    12	              SAM COOK	            JAN 13/2002	                   01 - RABIES VACCINATION 
+
+                                                                            MAR 27/2002	                   10 - EXAMINE and TREAT WOUND
+
+                                                                            APR 02/2002	                   05 - HEART WORM TEST 
+
+298	SPOT		DOG	    2	             TERRY KIM	            JAN 21/2002	                   08 - TETANUS VACCINATION	 
+
+                                                                            MAR 10/2002	                   05 - HEART WORM TEST 
+
+341	MORRIS		CAT	    4	             SAM COOK	            JAN 23/2001	                   01 - RABIES VACCINATION 
+
+                                                                            JAN 13/2002	                   01 - RABIES VACCINATION 
+
+519	TWEEDY		BIRD	    2	            TERRY KIM	            APR 30/2002	                   20 - ANNUAL CHECK UP 
+
+                                                                            APR 30/2002	                   12 - EYE WASH 
+
+1st normal form
+
+
+PET ID	PET NAME	PET TYPE  PET AGE             OWNER	             VISIT DATE	                  PROCEDURE 
+
+246	ROVER		DOG	    12	              SAM COOK	            JAN 13/2002	                   01 - RABIES VACCINATION 
+
+246	ROVER		DOG	    12	              SAM COOK	            MAR 27/2002	                   10 - EXAMINE and TREAT WOUND
+
+246	ROVER		DOG	    12	              SAM COOK	            APR 02/2002	                   05 - HEART WORM TEST 
+
+298	SPOT		DOG	    2	             TERRY KIM	            JAN 21/2002	                   08 - TETANUS VACCINATION	 
+
+298	SPOT		DOG	    2	             TERRY KIM              MAR 10/2002	                   05 - HEART WORM TEST 
+
+341	MORRIS		CAT	    4	             SAM COOK	            JAN 23/2001	                   01 - RABIES VACCINATION 
+
+341	MORRIS		CAT	    4	             SAM COOK               JAN 13/2002	                   01 - RABIES VACCINATION 
+
+519	TWEEDY		BIRD	    2	            TERRY KIM	            APR 30/2002	                   20 - ANNUAL CHECK UP 
+
+519	TWEEDY		BIRD	    2	            TERRY KIM               APR 30/2002	                   12 - EYE WASH
+
+
+2nd normal form
+
+pet_details
+pet id(pk)  pet name   pet type  pet age  pet owner
+
+246          rover      dog       12       sam cook
+298          spot       dog       2        terry kim
+341          morris     cat       4        sam cook
+519          tweedy     bird      2        terry kim
+
+
+procedure_details
+pet id(fk) visit date     procedure
+
+246      JAN 13/2002   01 - RABIES VACCINATION 
+246      MAR 27/2002   10 - EXAMINE and TREAT WOUND
+246      APR 02/2002   05 - HEART WORM TEST 
+298      JAN 21/2002   08 - TETANUS VACCINATION
+298      MAR 10/2002   05 - HEART WORM TEST
+341      JAN 23/2002   01 - RABIES VACCINATION 
+519      APR 30/2002   20 - ANNUAL CHECK UP 
+519      APR 30/2002   12 - EYE WASH
+
+pet_owner
+pet_id(fk) pet_owner   pet_name 
+246       sam cook    rover
+298       terry kim   spot
+341       sam cook    morris
+519       terry kim   tweedy
+
+
+
+
+
+
+
+
+
+

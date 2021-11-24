@@ -1,0 +1,227 @@
+1.What is the total salary for each department
+SELECT DEPTNO,SUM(SAL) 'TOTAL SALARY'
+FROM EMP
+GROUP BY DEPTNO;
+
+2.Who is drawing the lowest salary in dept 10
+SELECT DEPTNO,MIN(SAL) LOWEST
+FROM EMP
+WHERE DEPTNO=10
+GROUP BY DEPTNO;
+
+3.What is the average salary for Managers
+SELECT JOB,AVG(SAL) AVERAGE
+FROM EMP
+WHERE JOB='MANAGER'
+GROUP BY JOB;
+
+4.What is the total salary for salesman
+SELECT JOB,SUM(SAL) 'SUM SAL'
+FROM EMP
+WHERE JOB='SALESMAN'
+GROUP BY JOB;
+
+5.Which department is having the lowest average salary?
+SELECT DEPTNO,AVG(SAL) AVERAGE
+FROM EMP
+GROUP BY DEPTNO;
+
+6.How many persons are in each role
+SELECT DISTINCT(JOB) 'JOB ROLE'
+FROM EMP;
+
+7.What is the highest salary among analyst
+SELECT MAX(SAL) MAX
+FROM EMP
+WHERE JOB='ANALYST'
+GROUP BY JOB;
+
+8.What is the highest commission paid
+SELECT 
+MAX(ISNULL(COMM,0))'MAX COMMISSION'
+FROM EMP;
+
+9.How many departments are there
+SELECT COUNT (DISTINCT DEPTNO) 'NO OF DEPT'
+FROM DEPT;
+
+2ND ASSIGNMENT
+
+
+1.List the employees work in Chicago?
+SELECT 
+E.ENAME,E.EMPNO,D.LOC,D.DEPTNO
+FROM EMP E,DEPT D
+WHERE E.DEPTNO=D.DEPTNO AND D.LOC='CHICAGO';
+
+2.List the employee names and cities in which they work. Order the list by city.
+SELECT 
+E.ENAME,E.EMPNO,D.LOC,D.DEPTNO
+FROM EMP E,DEPT D
+WHERE E.DEPTNO=D.DEPTNO
+ORDER BY LOC;
+
+3.Display the employees who were hired before their managers.
+select e.ename , c.ename
+from emp e , emp c
+where e.empno = c.mgr and e.HIREDATE < c.HIREDATE
+
+4.Create a query to display the employee name and department name
+SELECT * FROM EMP;
+SELECT * FROM DEPT;
+SELECT E.ENAME,D.DNAME
+FROM EMP E,DEPT D;
+
+5.List the details of the employees along with their location
+SELECT 
+E.ENAME,E.EMPNO,D.LOC,D.DEPTNO
+FROM EMP E,DEPT D
+WHERE E.DEPTNO=D.DEPTNO
+
+6.list the employees whose hire date falls between start date & end date .Use emp & johist tables
+SELECT 
+E.EMPNO,E.ENAME,E.HIREDATE,J.STARTDATE,J.ENDDATE
+FROM EMP E,JOBHIST J
+WHERE E.HIREDATE BETWEEN J.STARTDATE AND ENDDATE;
+
+3RD ASSIGNMENT
+
+1. SELECT 
+E.ENAME,E.EMPNO,D.LOC,D.DEPTNO,D.LOC
+FROM EMP E
+JOIN 
+DEPT D
+ON(E.DEPTNO=D.DEPTNO )
+AND D.LOC='CHICAGO';
+
+2. SELECT E.ENAME,E.EMPNO,D.LOC,D.DEPTNO
+FROM EMP E
+JOIN
+DEPT D
+ON(E.DEPTNO=D.DEPTNO)
+ORDER BY LOC
+
+3.select e.ename AS 'MANAGER' , c.ename AS 'EMPLOYEE'
+from emp C
+JOIN
+EMP E
+ON(e.empno = c.mgr)
+and e.HIREDATE >c.HIREDATE;select e.ename , D.Dname 
+from emp E
+JOIN
+DEPT D
+ON(E.DEPTNO = D.DEPTNO)
+
+4.SELECT E.ENAME,D.DNAME
+FROM EMP E,
+join DEPT D
+ON(E.DEPTNO=D.DEPTNO);
+
+
+5.SELECT 
+E.ENAME,E.EMPNO,D.LOC,D.DEPTNO
+FROM EMP E
+JOIN DEPT D
+ON(E.DEPTNO=D.DEPTNO);
+
+6.SELECT
+E.EMPNO,E.ENAME,E.HIREDATE,J.STARTDATE,J.ENDDATE
+FROM EMP E
+JOIN JOBHIST J
+ON E.HIREDATE BETWEEN J.STARTDATE AND ENDDATE;
+
+4th ASSIGNMENT
+
+1.Display those emp who are working as manager
+SELECT 
+      EMPNO,ENAME,JOB
+	  FROM EMP
+	  WHERE JOB = 'MANAGER';
+
+2.write a subquery using case statement to display non sales if department is not sales
+If salary of an employee is more than 1000, then display salary otherwise display 1000
+SELECT ENAME,
+(CASE WHEN JOB='SALESMAN'
+THEN 'SALES' ELSE 'NOT SALES'END)JOB
+FROM EMP;
+
+SELECT ENAME,
+(CASE WHEN SAL>1000 
+THEN SAL ELSE '1000' END)SAL
+FROM EMP;
+
+3.Display salary as low, medium, high based on salary range
+Less than 1000 less
+1000 to 2500 medium
+More than 2500 high
+SELECT ENAME,
+(CASE WHEN SAL<1000 THEN 'LOW' WHEN SAL BETWEEN 1000 AND 2500 THEN 'MEDIUM' ELSE 'HIGH'END)SAL
+FROM EMP;
+
+4.List the salesmen who are drawing salary less than Miller
+SELECT ENAME,JOB,SAL
+FROM EMP e
+WHERE SAL > (SELECT SAL FROM EMP WHERE ENAME='MILLER')
+AND JOB='SALESMAN';
+
+5.Display the details of the employee working in Chicago
+SELECT *
+FROM EMP 
+WHERE DEPTNO =( SELECT DEPTNO FROM DEPT WHERE LOC='CHICAGO');
+
+6.Find the names of all employees whose salaries are greater than the minimum salary for the Manager
+SELECT ENAME ,SAL,JOB
+FROM EMP
+WHERE SAL > ( SELECT MIN(SAL) FROM EMP WHERE JOB='MANAGER');
+
+7.Select the last name and job id from all employees whose department id is equal to Accounting.
+SELECT ENAME ,JOB
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME='ACCOUNTING');
+
+8.How many employees work in Chicago?
+SELECT COUNT(DEPTNO) AS 'COUNT'
+FROM EMP 
+WHERE DEPTNO =( SELECT DEPTNO FROM DEPT WHERE LOC='CHICAGO');
+
+9.Which employees work in Chicago?
+SELECT ENAME
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC= 'CHICAGO');
+
+10.List the department without any employees in it.
+SELECT DEPTNO,DNAME
+FROM DEPT
+WHERE DEPTNO NOT IN (SELECT DEPTNO FROM EMP);
+
+11.List the name and job of the employees who does not report to anybody.
+SELECT ENAME ,JOB
+FROM EMP
+WHERE EMPNO NOT IN (SELECT EMPNO FROM EMP WHERE MGR IS NOT NULL);
+
+12.Write a query that will give you the names and jobs of all employees in New York with a commission above 1000
+SELECT ENAME,JOB 
+FROM EMP 
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC= 'NEW YORK')
+AND COMM > 1000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
