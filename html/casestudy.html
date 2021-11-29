@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="stylesheet" href="casestudy.css">
         <title>case study</title>
         <script>
             function create(){
@@ -10,19 +11,21 @@
             }               
         </script>
     </head>
-    <body style="text-align:center">
-       <p> <button onclick="create()">create task</button></p><br>
-        <p><button onclick="assign()">assign task</button></p><br><hr>
+    <body style="text-align:center" >
+        <form class="box" action="casestudy.html" method="post">
+         
+        <button onclick="create()" class="btn">create task</button>
+       <button onclick="assign()"  class="btn">assign task</button><hr>
+    
+        <h1> CHECK STATUS:</h1>
+            
+           <input type="number" id="id" name="id" placeholder="enter task id" required >
+            <input type="submit"  name="" value="submit"><hr>
 
-        <p> CHECK STATUS:</p>
-            <label for="id">enter task id:</label>
-           <input type="number" id="id" name="id" required ><br>
-            <p><input type="submit"></p><hr>
-
-            <p> SEARCH TASK:</p>
-            <label for="id">enter task id:</label>
-           <input type="number" id="id" name="id" required ><br>
-           <p><input type="submit"></p><hr>
-
+            <h1> SEARCH TASK:</h1>
+           
+           <input type="number" id="id" name="id" placeholder="enter task id" required >
+           <input type="submit"  name="" value="submit"><hr>
+        </form>
      </body>
   </html>
