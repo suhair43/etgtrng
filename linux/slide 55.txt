@@ -1,0 +1,6 @@
+1. tail +10 file |head -15
+2. $>head -n 10 file1|tail -n + 10
+3. ls -t|head -n1
+4. ls -t|head -n1
+5. wc -l file1
+6. find . -mtime +3 -exec rm -i{}\;

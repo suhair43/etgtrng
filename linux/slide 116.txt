@@ -1,0 +1,6 @@
+1. sort file>outfile &
+2.nohup sort +0 -1 -o outfilename <filename &
+3. 
+4. sleep 5
+5. ps
+6. ps -l pid
