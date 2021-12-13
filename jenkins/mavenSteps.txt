@@ -1,0 +1,18 @@
+maven commands:
+
+1)to generate maven project
+
+mvn archetype:generate                             #generate a new project
+ -DgroupId=com.metamug                             #package(what is the main package you are going to create)
+ -DartifactId=mywebapp                             #proejct name
+ -DarchetypeArtifactId=maven-archetype-webapp      #create a pom file with basic dependencies
+ -DinteractiveMode=false                           #
+
+2)maven build commands
+
+>mvn compile    #compile the project and generate target folder
+>mvn install    #builds the maven project and installs it into local maven repository.
+
+3)maven unit test commands
+
+>mvn test       #If you want to run tests, run the test goal. It will run all the tests created
