@@ -16,3 +16,107 @@ mvn archetype:generate                             #generate a new project
 3)maven unit test commands
 
 >mvn test       #If you want to run tests, run the test goal. It will run all the tests created
+
+
+
+
+
+
+
+pipeline 
+{
+    agent any
+
+    stages 
+    {
+        stage('Build') 
+        {
+            steps 
+            {
+                echo 'Build App'
+            }
+        }
+
+        stage('Test') 
+        {
+            steps 
+            {
+                echo 'Test App'
+            }
+        }
+
+        stage('Deploy') 
+        {
+            steps 
+            {
+                echo 'Deploy App'
+            }
+        }
+    }
+
+    post
+    {
+
+    	always
+    	{
+    		emailext body: 'Summary', subject: 'Pipeline Status', to: 'selenium3bymukesh@gmail.com'
+    	}
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pipeline {
+    agent any
+    tools {
+        maven 'MAVEN_HOME'
+    }
+    stages {
+        stage('BUILD') {
+            steps {
+                echo 'Hello World'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/suhair43/mavendemo.git']]])
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+    }
+    post {
+        always {
+            junit(
+                allowEmptyResults:true,
+                testResults: '*test-reports/.xml'
+                )
+            }
+        }
+    }
